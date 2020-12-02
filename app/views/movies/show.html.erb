@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Detail:</strong>
+  <%= @movie.detail %>
+</p>
+
+<p>
   <% if @movie.image.attached? %>
     <%= image_tag @movie.image %>
   <% end %>
