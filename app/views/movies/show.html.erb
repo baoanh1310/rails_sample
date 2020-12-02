@@ -21,7 +21,7 @@
   <% end %>
 </p>
 
-<h2>Review From</h2>
+<h2>Review Form</h2>
 <%= form_with(model: @movie_review, local: true) do |form| %>
   <div class= "field">
     <%= form.text_area :review %>
@@ -31,6 +31,14 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<h2>Review List</h2>
+<ul>
+  <% @movie.movie_review.each do |movie_review|%>
+   <li><%= movie_review.review %>
+     (<i><%= movie_review.user_id %></i>)</li>
+<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

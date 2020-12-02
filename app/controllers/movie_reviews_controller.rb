@@ -29,8 +29,8 @@ class MovieReviewsController < ApplicationController
 
     respond_to do |format|
       if @movie_review.save
-        format.html { redirect_to @movie_review, notice: 'Movie review was successfully created.' }
-        format.json { render :show, status: :created, location: @movie_review }
+        url = "/movies/" + @movie_review.movie_id.to_s
+        format.html { redirect_to url, notice: 'Movie review was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @movie_review.errors, status: :unprocessable_entity }
