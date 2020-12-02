@@ -6,8 +6,14 @@
 </p>
 
 <p>
-  <strong>Length:</strong>
+  <strong>Length in minutes:</strong>
   <%= @movie.length %>
+</p>
+
+<p>
+  <% if @movie.image.attached? %>
+    <%= image_tag @movie.image %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
