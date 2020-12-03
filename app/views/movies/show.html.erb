@@ -51,7 +51,7 @@
           <tbody>
             <% @movie.movie_review.each do |movie_review|%>
               <tr>
-                <td><%= movie_review.user_id %>k</td>
+                <td><%= movie_review.user_id %></td>
                 <td><%= movie_review.user.name if movie_review.user%></td>
                 <td><%= movie_review.review %></td>
               </tr>
