@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Movie Reviews</h1>
+<h1 class="text-center">Movie Reviews</h1>
+<%= link_to 'New Movie Review', new_movie_review_path, {:style =>'margin: 20px 0;', :class => "btn btn-outline-primary"} %>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Movie</th>
-      <th>Review</th>
+      <th scope="col" class="text-center">User</th>
+      <th scope="col" class="text-center">Movie</th>
+      <th scope="col" class="text-center">Review</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Movie Review', new_movie_review_path %>

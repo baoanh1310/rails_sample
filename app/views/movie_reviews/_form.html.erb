@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.number_field :user_id,:class =>"form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :movie_id %>
-    <%= form.number_field :movie_id %>
+    <%= form.number_field :movie_id,:class =>"form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :review %>
-    <%= form.text_area :review %>
+    <%= form.text_area :review,:class =>"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit 'Submit', {:style => "margin : 20px 0;",:class => 'btn btn-primary'} %>
   </div>
 <% end %>
