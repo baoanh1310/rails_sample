@@ -15,5 +15,5 @@
   <%= @movie_review.review %>
 </p>
 
-<%= link_to 'Edit', edit_movie_review_path(@movie_review) %> |
-<%= link_to 'Back', movie_reviews_path %>
+<%= link_to 'Edit', edit_movie_review_path(@movie_review) ,:class => "btn btn-primary"%> |
+<%= link_to 'Back', movie_reviews_path ,{:style =>'margin: 20px 0;', :class => "btn btn-warning"} %>

@@ -1,45 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @movie.name %>
-</p>
 
-<p>
-  <strong>Length in minutes:</strong>
-  <%= @movie.length %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @movie.detail %>
-</p>
-
-<p>
-  <% if @movie.image.attached? %>
-    <%= image_tag @movie.image %>
-  <% end %>
-</p>
-
-<h2>Review Form</h2>
-<%= form_with(model: @movie_review, local: true) do |form| %>
-  <div class= "field">
-    <%= form.text_area :review %>
-    <%= form.hidden_field :movie_id, :value => @movie.id %>
+<div class="d-flex justify-content-between">
+  <div class="w-75">
+    <h2 class="text-center">Movie Information</h2>
+    <p>
+      <strong>Name:</strong>
+      <%= @movie.name %>
+    </p>
+    
+    <p>
+      <strong>Length in minutes:</strong>
+      <%= @movie.length %>
+    </p>
+    
+    <p>
+      <strong>Detail:</strong>
+      <%= @movie.detail %>
+    </p>
+    
+    <strong>Image :</strong>
+    <p class="text-center">
+      <% if @movie.image.attached? %>
+        <%= image_tag @movie.image %>
+      <% end %>
+    </p>
   </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="w-75" style ='margin: 20px 40px;'>
+    <h2 class="text-center">Review Form</h2>
+    <%= form_with(model: @movie_review, local: true) do |form| %>
+      <div class= "field">
+        <%= form.text_area :review, {:style =>'margin: 20px 0px;', :class =>"form-control", cols: "30", rows: "10"}  %>
+        <%= form.hidden_field :movie_id, :value => @movie.id %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Submit', :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+    
+    <h2 class="text-center">Review List</h2>
+    <ul>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name User</th>
+              <th scope="col">Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @movie.movie_review.each do |movie_review|%>
+              <tr>
+                <td><%= movie_review.user_id %>k</td>
+                <td><%= movie_review.user.name if movie_review.user%></td>
+                <td><%= movie_review.review %></td>
+              </tr>
+            <% end %>
+        </table>
+    </ul>
   </div>
-<% end %>
+</div>
 
-<h2>Review List</h2>
-<ul>
-  <% @movie.movie_review.each do |movie_review|%>
-   <li><%= movie_review.review %>
-     <!--(<i><%= movie_review.user_id %></i>)</li>-->
-     (<i><%= movie_review.user.name if movie_review.user%></i>)</li>
-<% end %>
-</ul>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+
+
+
+<%= link_to 'Edit', edit_movie_path(@movie),:class => "btn btn-primary" %> |
+<%= link_to 'Back', movies_path,{:style =>'margin: 20px 0;', :class => "btn btn-warning"} %>
